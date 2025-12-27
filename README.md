@@ -84,7 +84,7 @@ Copy code
 
 ### Example Models Relationship
 
-```js
+``` js
 User.hasMany(Task);
 Task.belongsTo(User);
 
@@ -96,8 +96,7 @@ bash
 Copy code
 cd backend
 2. Install dependencies
-bash
-Copy code
+ 
 npm install
 3. Configure Environment Variables
 Create a .env file:
@@ -112,7 +111,7 @@ DB_NAME=task_management
 JWT_SECRET=your_secret_key
 4. Configure Sequelize (config/db.js)
 js
-Copy code
+    
 import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize(
@@ -156,74 +155,9 @@ http://localhost:5173
 Features
 User Authentication (JWT)
 
-Task Management (CRUD)
-
-Document Upload & Listing
-
-Role-based access (Admin/User)
-
-Responsive UI
-
-Secure API handling
-
-Scalable database design
-
-API Communication Flow
-User interacts with React UI
-
-Axios sends request to Express API
-
-Express validates request & JWT
-
-Sequelize queries MySQL
-
-Response sent back to frontend
-
-Why Sequelize + MySQL?
-Structured relational data
-
-Strong data integrity
-
-Easy model relationships
-
-Production-ready ORM
-
-Widely used in enterprise applications
-
-Future Improvements
-Pagination & search
-
-Cloud storage for documents
-
-Role-based dashboards
-
-API rate limiting
-
-Docker support
+ 
 
 Author
 Veer
 Full Stack Developer (MERN)
-
-License
-This project is for learning and demonstration purposes.
-
-markdown
-Copy code
-
----
-
-### Next (optional)
-If you want, I can:
-- Generate **ER Diagram**
-- Create **API documentation**
-- Improve README for **resume / interview**
-- Add **Docker setup**
-- Create **.gitignore**
-
-Just tell me.
-
-
-
-
-
+ 
