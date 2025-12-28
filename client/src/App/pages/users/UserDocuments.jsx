@@ -7,6 +7,7 @@ import {
   FaFilePdf,
   FaFileImage,
   FaFileWord,
+  FaDownload,
 } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -106,7 +107,29 @@ const UserDocuments = () => {
       setUploading(false);
     }
   };
-
+     const handleDownload = async (id, name) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:4000/api/documents/download/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          responseType: "blob",
+        }
+      );
+      const url = window.URL.createObjectURL(new Blob([res.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", name);
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      toast.error("Download failed");
+      console.error(error);
+    }    
+  }   
   return (
     <motion.section
       initial={{ opacity: 0, y: 24 }}
@@ -201,7 +224,13 @@ const UserDocuments = () => {
                 Uploaded on{" "}
                 {new Date(doc.createdAt).toLocaleDateString()}
               </p>
-               
+              <button
+                onClick={() => handleDownload(doc.id, doc.name)}
+                className="w-full px-4 py-2   bg-emerald-600 text-white rounded-xl  hover:bg-emerald-700"
+              >
+                download <FaDownload className="inline-block ml-2" />
+              </button> 
+                 
               
             </motion.div>
           ))}

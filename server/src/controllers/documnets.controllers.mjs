@@ -41,5 +41,19 @@ const userDocuments = async (req, res) => {
     return res.status(500).json({ message: "Failed to get user documents", error: error.message });
   } 
 }
- 
-export { uploadUserDocument, userDocuments };
+
+const downloadUserDocument = async (req, res) => {
+  try {
+    const documentId = req.params.id;
+    const document = await Documents.findOne({ where: { id: documentId } });
+    if (!document) {
+      return res.status(404).json({ message: "Document not found" });
+    }
+    res.download(document.documentUrl, document.documentName);
+  } catch (error) {
+    console.error("Failed to download document", error);
+    return res.status(500).json({ message: "Failed to download document", error: error.message });
+  } 
+}
+
+export { uploadUserDocument, userDocuments, downloadUserDocument };
