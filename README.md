@@ -153,3 +153,43 @@ Veer
 Full Stack Developer (MERN)
 ```
  
+# Passkey-Based Authentication (WebAuthn)
+
+## Overview
+Passkeys are a modern, phishing-resistant authentication mechanism based on the **Web Authentication (WebAuthn)** standard.  
+They replace traditional passwords with **public–private key cryptography**, providing stronger security for users and administrators.
+
+This project uses **passkeys during user registration and login** to protect:
+- User data
+- Admin panel access
+- Sensitive application resources
+
+---
+
+## Why Use Passkeys?
+Traditional passwords are vulnerable to:
+- Phishing attacks
+- Credential stuffing
+- Database leaks
+- Weak password reuse
+
+Passkeys solve these problems by:
+- Eliminating passwords entirely
+- Using device-based cryptographic keys
+- Requiring biometric or device-level authentication
+- Ensuring credentials never leave the user's device
+
+---
+
+## How Passkeys Work (High-Level Flow)
+
+1. User registers with email/username
+2. Server generates a **WebAuthn challenge**
+3. Browser creates a **public–private key pair**
+4. Public key is stored in the database
+5. Private key remains securely on the user’s device
+6. During login, the server verifies cryptographic proof
+
+---
+
+ 
