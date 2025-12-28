@@ -67,9 +67,7 @@ Copy code
 │ MySQL DB │
 │ (Relational)│
 └──────────────┘
-
-yaml
-Copy code
+ 
 
 ---
 
@@ -92,8 +90,7 @@ User.hasMany(Document);
 Document.belongsTo(User);
 Backend Setup
 1. Navigate to backend folder
-bash
-Copy code
+ 
 cd backend
 2. Install dependencies
  
@@ -101,8 +98,7 @@ npm install
 3. Configure Environment Variables
 Create a .env file:
 
-env
-Copy code
+ 
 PORT=4000
 DB_HOST=localhost
 DB_USER=root
@@ -131,26 +127,21 @@ Copy code
 npm start
 Backend will run at:
 
-arduino
-Copy code
+  
 http://localhost:4000
 Frontend Setup
-1. Navigate to frontend folder
-bash
-Copy code
+-1. Navigate to frontend folder
+ 
 cd frontend
 2. Install dependencies
-bash
-Copy code
+
 npm install
 3. Start React App
-bash
-Copy code
+ 
 npm run dev
 Frontend will run at:
 
-arduino
-Copy code
+ 
 http://localhost:5173
 Features
 User Authentication (JWT)
@@ -158,6 +149,7 @@ User Authentication (JWT)
  
 
 Author
-Veer
+Veer 
 Full Stack Developer (MERN)
+```
  
