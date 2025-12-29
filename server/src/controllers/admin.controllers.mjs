@@ -1,4 +1,3 @@
-import { where } from "sequelize";
 import Task from "../models/task.model.mjs";
 import User from "../models/user.model.mjs";
 
