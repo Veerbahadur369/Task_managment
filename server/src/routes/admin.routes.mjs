@@ -14,6 +14,6 @@ adminRoute.post('/createtask',authMiddleware,roleMiddleware(ADMIN_ROLE),createTa
 adminRoute.get('/alltasks',authMiddleware,roleMiddleware(ADMIN_ROLE),getAllTasks);
   
 // - Admin must define a status for each task.
-adminRoute.post('/updatetaskstatus',authMiddleware,roleMiddleware(ADMIN_ROLE),updateTaskStatus);
+adminRoute.patch('/updatetaskstatus/:id',authMiddleware,roleMiddleware(ADMIN_ROLE),updateTaskStatus);
 
 export {adminRoute}; 

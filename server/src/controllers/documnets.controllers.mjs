@@ -29,7 +29,7 @@ const uploadUserDocument = async (req, res) => {
   }).catch((error) => {
     console.error("Error while adding patents", error)
   })
-
+ 
 }
 const userDocuments = async (req, res) => {
   try {
@@ -44,8 +44,14 @@ const userDocuments = async (req, res) => {
 
 const downloadUserDocument = async (req, res) => {
   try {
+    const userId = req.user.id;
     const documentId = req.params.id;
-    const document = await Documents.findOne({ where: { id: documentId } });
+    const document = await Documents.findOne({
+      where: {
+        id: documentId,
+        userId: userId, // 🔐 ownership check
+      },
+    });
     if (!document) {
       return res.status(404).json({ message: "Document not found" });
     }

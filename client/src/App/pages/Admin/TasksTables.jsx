@@ -22,8 +22,9 @@ const TasksTable = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      await axios.put(
-        `http://localhost:4000/api/admin/tasks/${id}/status`,
+      console.log("status update")
+      await axios.patch(
+        `http://localhost:4000/api/admin/updatetaskstatus/${id}`,
         { status },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

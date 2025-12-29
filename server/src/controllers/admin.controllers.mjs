@@ -86,9 +86,10 @@ const createTask = async (req, res) => {
 
   const  updateTaskStatus=async(req,res)=>{
     try { 
-      // Logic to update task status  
-        const { taskId, status } = req.body;  
-        const task = await Task.findByPk(taskId);
+      // Logic to update task status 
+      const id = req.params.id; 
+        const {  status } = req.body;  
+        const task = await Task.findByPk(id);
         if (!task) {
           return res.status(404).json({ message: "Task not found" });
         }
